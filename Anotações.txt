@@ -52,4 +52,30 @@ Incluindo css e js (diretório (root): static/style.css)
 
     <script src="{{url_for('static', filename='script.js')}}"></script>
 
+Requisições usando flask:
+
+    from flask import request
+
+    @app.route('/', methods=['GET', 'POST'])
+    def hello_world():
+        if request.method == 'GET':
+            return render_template('index.html')
+        else:
+            nome = request.form['nome']
+            idade = request.form['idade']
+            conteudo = request.form['conteudo']
+            
+            col = {'nome': nome, 'idade': idade, 'conteudo': conteudo} #collection
+            
+            return f"O que veio do meu form: {col}" #o name do formulario
+
+No html:
+
+    <form method="post">
+        <input type="text" name="nome">
+        <input type="text" name="idade">
+        <textarea name="conteudo"></textarea>
+        <input type="submit" name="acao">
+    </form>
+
 

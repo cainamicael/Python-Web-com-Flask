@@ -1,11 +1,20 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
 #Rotas
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def hello_world():
-    return render_template('index.html', content=['banana', 'pera', 'maçã'])
+    if request.method == 'GET':
+        return render_template('index.html')
+    else:
+        nome = request.form['nome']
+        idade = request.form['idade']
+        conteudo = request.form['conteudo']
+        
+        col = {'nome': nome, 'idade': idade, 'conteudo': conteudo} #collection
+        
+        return f"O que veio do meu form: {col}" #o name do formulario
 
 @app.route('/sobre')
 def sobre():
