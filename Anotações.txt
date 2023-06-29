@@ -32,3 +32,18 @@ Renderizando html (diretório: templates/index.html)
     @app.route('/')
     def hello_world():
         return render_template('index.html')
+
+Passando informações para o html:
+
+    @app.route('/')
+    def hello_world():
+        return render_template('index.html', content=['banana', 'pera', 'maçã'])
+
+No html:
+
+    <h1>O index.html está sendo carregado!</h1>
+    {% for value in content %}
+        <p>Valor {{value}}</p>
+    {% endfor %}
+
+
