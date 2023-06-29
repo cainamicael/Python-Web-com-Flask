@@ -122,3 +122,26 @@ Cookies:
         
         return resp
 
+Usando MySql: pip install pymysql
+
+Conectando no MySql:
+
+    import pymysql
+
+    db = pymysql.connect(host='localhost', user='root', password='', database='youtube')
+
+    @app.route('/mysql')
+    def mysql():
+        cursor = db.cursor()
+        sql = 'SELECT * FROM clientes'
+        cursor.execute(sql)
+        results = cursor.fetchall()
+        
+        array = []
+        
+        for elemento in results:
+            array.append(elemento)
+            
+        print(results)
+        return array
+

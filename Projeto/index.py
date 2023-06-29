@@ -1,7 +1,10 @@
 from flask import Flask, render_template, request, session, make_response
+import pymysql
 
 app = Flask(__name__)
 app.secret_key = 'vad6gq883JYTI!&uhje31ljhj,cw$%¨defkqrq8'
+
+db = pymysql.connect(host='localhost', user='root', password='', database='youtube')
 
 #Rotas
 @app.route('/', methods=['GET', 'POST'])
@@ -46,5 +49,19 @@ def cookie():
         resp.set_cookie('usuario', 'guilherme')    
     
     return resp
+  
+@app.route('/mysql')
+def mysql():
+    cursor = db.cursor()
+    sql = 'SELECT * FROM clientes'
+    cursor.execute(sql)
+    results = cursor.fetchall()
     
+    array = []
+    
+    for elemento in results:
+        array.append(elemento)
+        
+    print(results)
+    return array
 
