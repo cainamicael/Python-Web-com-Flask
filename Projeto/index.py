@@ -15,4 +15,3 @@ def sobre():
 @app.route('/noticia/<slug>')
 def noticia(slug):
     return f'<h2>O slug é {slug}</h2>'
-
