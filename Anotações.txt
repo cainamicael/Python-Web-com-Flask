@@ -87,3 +87,27 @@ Sessions e cookies:
 Sessions: 
 
     from flask import session
+
+    app.secret_key = 'vad6gq883JYTI!&uhje31ljhj,cw$%¨defkqrq8'
+
+    @app.route('/sessao')
+    def sessao():
+        session['usuario'] = 'guilherme' 
+        return session['usuario']
+
+Verificando session:
+
+    @app.route('/sessao')
+    def sessao():
+        if 'usuario' in session:
+            usuario = session['usuario']
+            return usuario
+        else:
+            session['usuario'] = 'guilherme' 
+            return session['usuario']
+
+Cookies:
+
+    from flask import request, make_response
+    
+
