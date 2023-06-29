@@ -47,3 +47,9 @@ No html:
     {% endfor %}
 
 Incluindo css e js (diretório (root): static/style.css)
+
+    <link href="{{url_for('static', filename='style.css')}}" rel="stylesheet" />
+
+    <script src="{{url_for('static', filename='script.js')}}"></script>
+
+
