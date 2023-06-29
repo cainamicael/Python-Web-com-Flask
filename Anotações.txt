@@ -6,7 +6,7 @@ Instalando flask: pip install Flask
 
 Rodando aplicação: flask --app index run
 
-Rodando aplicação em modo developver: flask --app index run --debug #inicia automaticamente
+Rodando aplicação em modo developver: flask --app index run --debug #reinicia automaticamente
 
 Hello world com flask no servidor:
 
