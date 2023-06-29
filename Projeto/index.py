@@ -39,10 +39,10 @@ def sessao():
 def cookie():
     #Pegando cookie
     if (request.cookies.get('usuario')):
-        resp = make_response('Meu website com o cookie setado')
+        resp = make_response('Meu website com o cookie setado') #Posso usar um render_template
     else:
         #Setando cookie
-        resp = make_response('Meu website sem o cookie')
+        resp = make_response('Meu website sem o cookie') #Posso usar um render_template
         resp.set_cookie('usuario', 'guilherme')    
     
     return resp
