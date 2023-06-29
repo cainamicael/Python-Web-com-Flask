@@ -4,6 +4,10 @@ Ativando ambiente virtual: .venv\Scripts\activate
 
 Instalando flask: pip install Flask
 
+Importando flask: from flask import Flask
+
+Exemplo de importações: from flask import Flask, render_template, request, session
+
 Rodando aplicação: flask --app index run
 
 Rodando aplicação em modo developver: flask --app index run --debug #reinicia automaticamente
@@ -78,4 +82,8 @@ No html:
         <input type="submit" name="acao">
     </form>
 
+Sessions e cookies:
 
+Sessions: 
+
+    from flask import session
