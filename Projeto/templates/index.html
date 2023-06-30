@@ -1,12 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Inicio</title>
 </head>
 <body>
     <h1>Bem vindo à central de operações. Escolha o que você vai fazer: <h1>
+    
+    <h2>Inserir novo registro: </h2>
+    <form method="post">
+        <input type="text" name="nome">
+        <input type="email" name="email">
+        <input type="submit" name="acao">
+    </form>
 
     <h2>Aqui estão todos os registros: </h2>
     <br />
@@ -14,17 +21,10 @@
         <div class="testes">
             <p>Nome: {{elemento[1]}}</p>
             <p>Email: {{elemento[2]}}</p>
-            <button type="button"><a href="">Editar</a></button>
-            <button type="button"><a href="/deletar?id={{elemento[0]}}">Deletar</a></button>
+            <button type="button"><a href="/clientes/editar/{{elemento[0]}}">Editar</a></button>
+            <button type="button"><a href="/clientes/deletar?id={{elemento[0]}}">Deletar</a></button>
             <hr/>
         </div>
     {% endfor %}
-        
-    <h2>Inserir novo registro: </h2>
-    <form method="post">
-        <input type="text" name="nome">
-        <input type="email" name="email">
-        <input type="submit" name="acao">
-    </form>
 </body>
 </html>

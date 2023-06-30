@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar</title>
+</head>
+<body>
+    <form method="post" action="/clientes/editar/{{ content[0] }}">
+        <input type="text" name="nome" value="{{ content[1] }}">
+        <input type="email" name="email" value="{{ content[2] }}">
+        <input type="submit" name="acao">
+    </form>
+</html>

@@ -10,7 +10,6 @@ def main():
     sql = 'SELECT * FROM clientes'
     cursor.execute(sql)
     results = cursor.fetchall()
-    print(results)
     
     return render_template('index.html', content=results)
 
@@ -26,9 +25,37 @@ def cadastrar():
     
     return redirect(url_for('main')) #O nome da função do endpoint que queremos
 
-@app.route('/deletar') #/deletar?id={{elemento[0]}}
+@app.route('/clientes/editar/<int:id>', methods=['GET', 'POST'])
+def editar(id):
+    cursor = db.cursor()
+     
+    if request.method == 'GET':
+        sql = 'SELECT * FROM clientes WHERE id = %(id)s'
+        cursor.execute(sql, {'id': id})
+        results = cursor.fetchall()
+        
+        return render_template('editar.html', content=results[0])
+    
+    if request.method == 'POST':
+        nome = request.form['nome']
+        email = request.form['email']
+        
+        sql = 'UPDATE clientes SET nome = %(nome)s, email = %(email)s WHERE id = %(id)s'
+        cursor.execute(sql, {'nome': nome, 'email': email, 'id': id})
+        db.commit()
+        
+        return redirect(url_for('main'))
+    
+    return 'Erro'
+
+@app.route('/clientes/deletar') #/deletar?id={{elemento[0]}}
 def delete():
     id = request.args.get('id')
-    return f'O id é {id}'
+    cursor = db.cursor()
+    sql = 'DELETE FROM clientes WHERE id = %(id)s'
+    cursor.execute(sql, {'id': id})
+    db.commit()
+    
+    return redirect(url_for('main'))
 
 app.run(port=5000, host='localhost', debug=True)

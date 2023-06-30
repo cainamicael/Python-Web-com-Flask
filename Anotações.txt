@@ -38,7 +38,7 @@ Exemplo 2:
 
     @app.route('/deletar/<int:id>', methods=['DELETE'])
 
-Argumentos/queries na url:
+Argumentos/queries (query params) na url:
 
     @app.route('/deletar') #/deletar?id={{elemento[0]}}
     def delete():
