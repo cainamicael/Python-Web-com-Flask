@@ -65,3 +65,4 @@ def mysql():
     print(results)
     return array
 
+app.run(port=5000, host=localhost, degub=True)

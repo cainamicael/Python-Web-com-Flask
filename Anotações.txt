@@ -12,6 +12,8 @@ Rodando aplicação: flask --app index run
 
 Rodando aplicação em modo developver: flask --app index run --debug #reinicia automaticamente
 
+Modo alternativo: app.run(port=5000, host=localhost, degub=True)
+
 Hello world com flask no servidor:
 
     from flask import Flask
@@ -22,6 +24,9 @@ Hello world com flask no servidor:
     @app.route("/")
     def hello_world():
         return '<h2>Olá mundo</h2>'
+
+    #opcional
+    #app.run(port=5000, host=localhost, degub=True)
 
 Pegando parâmetro da url:
 
